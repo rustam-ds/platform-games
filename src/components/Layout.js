@@ -1,28 +1,24 @@
 import React from 'react';
-import styled, { css } from 'src/theme';
 import { Link } from 'react-router-dom';
+import styled, { css } from 'src/theme';
 import { routes } from 'src/utils/routes';
-import { useStoreon } from 'storeon/react';
 import { useLocales } from 'src/hooks/useLocales';
 
 export const Layout = props => {
-  const { app } = useStoreon('app');
   const locales = useLocales();
 
   return (
-    app.isInit && (
-      <LayoutStyled>
-        <HeaderStyled>
-          <Link to={routes.index}>
-            <TitleStyled>{locales.components.header.title}</TitleStyled>
-          </Link>
-        </HeaderStyled>
-        {props.children}
-        <FooterStyled>
-          <InfoStyled>{locales.components.footer.lawInfo}</InfoStyled>
-        </FooterStyled>
-      </LayoutStyled>
-    )
+    <LayoutStyled>
+      <HeaderStyled>
+        <Link to={routes.index}>
+          <TitleStyled>{locales.components.header.title}</TitleStyled>
+        </Link>
+      </HeaderStyled>
+      {props.children}
+      <FooterStyled>
+        <InfoStyled>{locales.components.footer.lawInfo}</InfoStyled>
+      </FooterStyled>
+    </LayoutStyled>
   );
 };
 

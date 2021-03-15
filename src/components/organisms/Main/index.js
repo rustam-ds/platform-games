@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import styled, { css } from 'src/theme';
-import { usePresenter } from './usePresenter';
+import { useLocales } from 'src/hooks/useLocales';
 import { Sort } from 'src/components/organisms/Sort';
 import { Filter } from 'src/components/organisms/Filter';
 import { Search } from 'src/components/organisms/Search';
-import { Cards } from 'src/components/organisms/Cards';
+import { Cards } from 'src/components/molecules/Cards';
 import { Loader } from 'src/components/molecules/Loader';
-import { useLocales } from 'src/hooks/useLocales';
+import { usePresenter } from './usePresenter';
 
 export const Main = () => {
   const presenter = usePresenter();
@@ -16,11 +16,23 @@ export const Main = () => {
   return (
     <MainStyled>
       <OptionsStyled>
-        <Sort />
-        <Filter />
-        <Search />
+        <Sort
+          cards={presenter.gamesList}
+          handleChange={presenter.changeSortParamsAndFetchIt}
+        />
+        <Filter
+          platforms={presenter.platforms}
+          cards={presenter.gamesList}
+          handleChange={presenter.changePlatformNumberAndFetchIt}
+        />
+        <Search
+          platforms={presenter.platforms}
+          cards={presenter.gamesList}
+          inputValue={presenter.inputValue}
+          onChange={presenter.changeInputValueAndFetchIt}
+        />
       </OptionsStyled>
-      {presenter.loading ? <Loader /> : <Cards />}
+      {presenter.loading ? <Loader /> : <Cards cards={presenter.gamesList} />}
       <StyledReactPaginate>
         <ReactPaginate
           previousLabel={locales.components.main.cards.pagination.prev}
@@ -30,7 +42,7 @@ export const Main = () => {
           pageCount={presenter.count}
           marginPagesDisplayed={1}
           pageRangeDisplayed={5}
-          onPageChange={presenter.onClick}
+          onPageChange={presenter.changePageAndFetchIt}
           containerClassName={'pagination'}
           subContainerClassName={'pages pagination'}
           activeClassName={'active'}

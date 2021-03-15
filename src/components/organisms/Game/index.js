@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { css } from 'src/theme';
-import { Loader } from 'src/components/molecules/Loader';
-import { usePresenter } from './usePresenter';
 import { useLocales } from 'src/hooks/useLocales';
+import { Loader } from 'src/components/molecules/Loader';
 import { Slider } from 'src/components/molecules/Slider';
+import { usePresenter } from './usePresenter';
 
 export const Game = () => {
   const presenter = usePresenter();

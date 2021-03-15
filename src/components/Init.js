@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
-import { useStoreon } from 'storeon/react';
+import { useState, useEffect } from 'react';
 
 export const InitProvider = props => {
-  const { dispatch } = useStoreon();
+  const [init, setInit] = useState(false);
 
   useEffect(() => {
-    dispatch('app/init');
+    setInit(true);
   }, []);
 
-  return <>{props.children}</>;
+  return init && props.children;
 };

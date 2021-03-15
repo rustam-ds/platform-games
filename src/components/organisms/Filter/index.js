@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled, { css } from 'src/theme';
 import { Select } from 'src/components/molecules/Select';
-import { usePresenter } from './usePresenter';
 import { useLocales } from 'src/hooks/useLocales';
 
-export const Filter = () => {
-  const presenter = usePresenter();
+export const Filter = props => {
   const locales = useLocales();
+
+  const handleChange = useCallback(
+    event => {
+      if (event.target.value === '-1') {
+        props.handleChange(null);
+      } else {
+        props.handleChange(event.target.value);
+      }
+    },
+    [props.platforms, props.cards]
+  );
+
+  const isVisibleElseOption = true;
 
   return (
     <FilterStyled>
       <TitleStyled>{locales.components.main.filter.label}</TitleStyled>
       <SelectStyled
-        options={presenter.options}
-        onChange={presenter.onChange}
-        isVisible={presenter.isVisibleElseOption}
+        options={props.platforms}
+        onChange={handleChange}
+        isVisible={isVisibleElseOption}
       />
     </FilterStyled>
   );

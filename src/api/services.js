@@ -19,5 +19,5 @@ export const gameService = {
 };
 
 export const platformService = {
-  get: async options => api.get(options.url),
+  get: async url => api.get(url),
 };

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled, { css } from 'src/theme';
-import { usePresenter } from './usePresenter';
 import { useLocales } from 'src/hooks/useLocales';
 import { Input } from 'src/components/molecules/Input/Input';
 
-export const Search = () => {
-  const presenter = usePresenter();
+export const Search = props => {
   const locales = useLocales();
+
+  const onChange = useCallback(
+    event => {
+      props.onChange(event.target.value);
+    },
+    [props.platforms, props.cards]
+  );
 
   return (
     <SearchStyled>
       <TitleStyled>{locales.components.main.search.label}</TitleStyled>
-      <InputStyled onChange={presenter.onChange} value={presenter.value} />
+      <InputStyled onChange={onChange} value={props.inputValue} />
     </SearchStyled>
   );
 };
