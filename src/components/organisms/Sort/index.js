@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'src/theme';
-import { useLocales } from 'src/hooks/useLocales';
 import { usePresenter } from './usePresenter';
+import { useLocales } from 'src/hooks/useLocales';
 import { Select } from 'src/components/molecules/Select';
 
 export const Sort = () => {

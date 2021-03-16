@@ -1,13 +1,13 @@
 import React from 'react';
-import ReactPaginate from 'react-paginate';
 import styled, { css } from 'src/theme';
+import ReactPaginate from 'react-paginate';
 import { usePresenter } from './usePresenter';
+import { useLocales } from 'src/hooks/useLocales';
 import { Sort } from 'src/components/organisms/Sort';
 import { Filter } from 'src/components/organisms/Filter';
 import { Search } from 'src/components/organisms/Search';
 import { Cards } from 'src/components/organisms/Cards';
 import { Loader } from 'src/components/molecules/Loader';
-import { useLocales } from 'src/hooks/useLocales';
 
 export const Main = () => {
   const presenter = usePresenter();

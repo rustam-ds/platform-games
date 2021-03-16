@@ -2,26 +2,23 @@ import React from 'react';
 import styled, { css } from 'src/theme';
 import { usePresenter } from './usePresenter';
 import { Card } from 'src/components/molecules/Card';
-import { useLocales } from 'src/hooks/useLocales';
 
 export const Cards = () => {
   const presenter = usePresenter();
 
   return (
-    <>
-      <CardsStyled>
-        {presenter.cards.map(card => (
-          <Card
-            key={card.id}
-            name={card.name}
-            rate={card.rating}
-            image={card.background_image}
-            date={card.released}
-            id={card.id}
-          />
-        ))}
-      </CardsStyled>
-    </>
+    <CardsStyled>
+      {presenter.cards.map(card => (
+        <Card
+          key={card.id}
+          name={card.name}
+          rate={card.rating}
+          image={card.background_image}
+          date={card.released}
+          id={card.id}
+        />
+      ))}
+    </CardsStyled>
   );
 };
 

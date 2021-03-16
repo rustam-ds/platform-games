@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'src/theme';
-import { Loader } from 'src/components/molecules/Loader';
 import { usePresenter } from './usePresenter';
 import { useLocales } from 'src/hooks/useLocales';
+import { Loader } from 'src/components/molecules/Loader';
 import { Slider } from 'src/components/molecules/Slider';
 
 export const Game = () => {
@@ -24,7 +24,9 @@ export const Game = () => {
               {locales.components.game.linkSiteLabel} {presenter.game.website}
             </LinkStyled>
           )}
-          {presenter.game.tags && <Slider images={presenter.game.tags} />}
+          {presenter.game.tags && presenter.game.tags.length && (
+            <Slider images={presenter.game.tags} />
+          )}
         </GameStyled>
       )}
     </div>

@@ -1,6 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Main } from 'src/components/organisms/Main';
 
-export const MainPage = () => {
-  return useMemo(() => <Main />, []);
-};
+export const MainPage = () => <Main />;

@@ -1,6 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Game } from 'src/components/organisms/Game';
 
-export const GamePage = () => {
-  return useMemo(() => <Game />, []);
-};
+export const GamePage = () => <Game />;

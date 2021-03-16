@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'src/theme';
 import { Link } from 'react-router-dom';
-import { routes } from 'src/utils/routes';
 import { useStoreon } from 'storeon/react';
+import { routes } from 'src/utils/routes';
 import { useLocales } from 'src/hooks/useLocales';
 
 export const Layout = props => {

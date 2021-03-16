@@ -38,7 +38,7 @@ export const Slider = props => {
       </ArrowLeftStyled>
       <ImageStyled
         src={props.images[indexForSliderImages].image_background}
-        alt={''}
+        alt={props.images[indexForSliderImages].name}
       />
       <ArrowRightStyled onClick={showNextImage}>
         <ArrowStyled src={locales.components.game.slider.arrows.right} />

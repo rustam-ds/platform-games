@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled, { css } from 'src/theme';
+import { Link } from 'react-router-dom';
 import { useLocales } from 'src/hooks/useLocales';
 
 export const Card = props => {

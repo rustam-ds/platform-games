@@ -5,10 +5,10 @@ export const Loader = () => {
   return (
     <LoaderViewStyled>
       <LoaderStyled>
-        <div />
-        <div />
-        <div />
-        <div />
+        <LoaderPartStyled />
+        <LoaderPartStyled />
+        <LoaderPartStyled />
+        <LoaderPartStyled />
       </LoaderStyled>
     </LoaderViewStyled>
   );
@@ -63,3 +63,5 @@ const LoaderStyled = styled.div`
     }
   `}
 `;
+
+const LoaderPartStyled = styled.div``;

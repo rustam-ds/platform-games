@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'src/theme';
-import { Select } from 'src/components/molecules/Select';
 import { usePresenter } from './usePresenter';
 import { useLocales } from 'src/hooks/useLocales';
+import { Select } from 'src/components/molecules/Select';
 
 export const Filter = () => {
   const presenter = usePresenter();
